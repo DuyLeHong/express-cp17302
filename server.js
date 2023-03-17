@@ -5,7 +5,7 @@ const port = 3000
 const expressHbs = require('express-handlebars');
 
 app.set('view engine', '.hbs');
-app.set('views', './views');
+//app.set('views', './views');
 
 app.engine('.hbs', expressHbs.engine({
     extname: "hbs",
