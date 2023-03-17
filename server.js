@@ -9,12 +9,29 @@ app.set('views', './views');
 
 app.engine('.hbs', expressHbs.engine({
     extname: "hbs",
-    defaultLayout: 'page2',
-    layoutsDir: "views/layouts/",
+    // defaultLayout: 'page2',
+    // layoutsDir: "views/layouts/",
 }));
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', {
+        layout:'main',
+        showBody: true,
+        showContentTinhToan: false,
+        showTitle: true
+    })
+});
+
+app.get('/tinhtoan', (req, res) => {
+    res.render('defaultView', {
+        layout:'main',
+        soA: 15,
+        soB: 7,
+        kq: 22,
+        operator: 'cong',
+        showBody: false,
+        showContentTinhToan: true
+    })
 });
 
 app.listen(port, () => {
